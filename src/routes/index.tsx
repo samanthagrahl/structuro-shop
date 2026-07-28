@@ -3,6 +3,9 @@ import { useState, type FormEvent } from "react";
 import heroWorkflow from "@/assets/hero-workflow.jpg";
 import samanthaPortrait from "@/assets/samantha.jpg";
 
+const maintenanceMode =
+  import.meta.env.PROD && import.meta.env.VITE_MAINTENANCE_MODE === "true";
+
 export const Route = createFileRoute("/")({
   component: Landing,
 });
@@ -16,6 +19,10 @@ const nav = [
 ];
 
 function Landing() {
+  if (maintenanceMode) {
+    return <MaintenancePage />;
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -33,6 +40,38 @@ function Landing() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+function MaintenancePage() {
+  return (
+    <main className="flex min-h-screen bg-background text-foreground">
+      <section className="container-page flex w-full items-center py-20">
+        <div className="max-w-2xl">
+          <p className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="h-px w-8 bg-petrol" />
+            C&amp;S Consulting
+          </p>
+          <h1 className="text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
+            Website im Aufbau
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            Unsere neue Website wird derzeit finalisiert. Vielen Dank fuer Ihre
+            Geduld.
+          </p>
+          <p className="mt-4 max-w-xl text-sm text-muted-foreground">
+            Bei Rueckfragen oder Interesse an einem Erstgespraech erreichen Sie
+            uns gern per E-Mail.
+          </p>
+          <a
+            href="mailto:info@cs-business-consulting.com"
+            className="mt-8 inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
+          >
+            info@cs-business-consulting.com
+          </a>
+        </div>
+      </section>
+    </main>
   );
 }
 
