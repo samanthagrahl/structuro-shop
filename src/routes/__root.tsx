@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AnalyticsConsentBanner } from "@/components/analytics-consent";
 import { setPageSeo } from "@/lib/seo";
 
 function NotFoundComponent() {
@@ -100,6 +101,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <AnalyticsConsentBanner />
     </QueryClientProvider>
   );
 }

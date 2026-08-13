@@ -115,7 +115,7 @@ export function organizationJsonLd() {
     telephone: "+34623721459",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Carrer de Medellin 4, Esc. 17, Oficina A",
+      streetAddress: "Carrer de Medellin 4, Esc. 17, Bajo A",
       postalCode: "07006",
       addressLocality: "Palma de Mallorca",
       addressCountry: "ES",

@@ -13,10 +13,10 @@ const content = {
   de: {
     title: "Impressum",
     intro:
-      "Angaben gemäß § 5 TMG (Deutschland) und Art. 10 Ley 34/2002 (LSSI-CE, Spanien)",
+      "Angaben gemäß § 5 DDG (Deutschland) und Art. 10 Ley 34/2002 (LSSI-CE, Spanien)",
     sections: [
       {
-        heading: "Anbieter",
+        heading: "Anbieter/Inhaber",
         body: [
           "C&S Business Consulting",
           "Christian Hofstetter",
@@ -26,10 +26,6 @@ const content = {
           "07006 Palma de Mallorca",
           "Spanien",
         ],
-      },
-      {
-        heading: "Vertretungsberechtigt",
-        body: ["Christian Hofstetter und Samantha Grahl"],
       },
       {
         heading: "Kontakt",
@@ -44,7 +40,7 @@ const content = {
         body: ["ESY5010117H (gemäß § 27a UStG)"],
       },
       {
-        heading: "Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)",
+        heading: "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)",
         body: [
           "Christian Hofstetter",
           "Carrer de Medellin 4, Esc. 17, Bajo A",
@@ -55,7 +51,6 @@ const content = {
       {
         heading: "EU-Streitschlichtung",
         body: [
-          "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: ec.europa.eu/consumers/odr",
           "Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
         ],
       },
@@ -85,10 +80,10 @@ const content = {
   en: {
     title: "Legal Notice / Imprint",
     intro:
-      "Information in accordance with § 5 TMG (Germany) and Art. 10 Ley 34/2002 (LSSI-CE, Spain)",
+      "Information in accordance with § 5 DDG (Germany) and Art. 10 Ley 34/2002 (LSSI-CE, Spain)",
     sections: [
       {
-        heading: "Service provider",
+        heading: "Service provider / Owner",
         body: [
           "C&S Business Consulting",
           "Christian Hofstetter",
@@ -98,10 +93,6 @@ const content = {
           "07006 Palma de Mallorca",
           "Spain",
         ],
-      },
-      {
-        heading: "Represented by",
-        body: ["Christian Hofstetter and Samantha Grahl"],
       },
       {
         heading: "Contact",
@@ -116,7 +107,7 @@ const content = {
         body: ["ESY5010117H"],
       },
       {
-        heading: "Responsible for content (§ 55 Abs. 2 RStV)",
+        heading: "Responsible for content (§ 18 (2) MStV)",
         body: [
           "Christian Hofstetter",
           "Carrer de Medellin 4, Esc. 17, Bajo A",
@@ -127,7 +118,6 @@ const content = {
       {
         heading: "EU dispute resolution",
         body: [
-          "The European Commission provides a platform for online dispute resolution (ODR): ec.europa.eu/consumers/odr",
           "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
         ],
       },
@@ -165,7 +155,7 @@ function ImpressumPage() {
     setPageSeo({
       title: isDe ? "Impressum | C&S Consulting" : "Legal Notice | C&S Consulting",
       description: isDe
-        ? "Impressum von C&S Business Consulting: Anbieterangaben, Kontakt und rechtliche Informationen gemäß TMG und LSSI-CE."
+        ? "Impressum von C&S Business Consulting: Anbieterangaben, Kontakt und rechtliche Informationen gemäß DDG und LSSI-CE."
         : "Legal notice of C&S Business Consulting: provider details, contact information and legal disclosures.",
       path: "/impressum",
       jsonLd: {
@@ -266,22 +256,6 @@ function ImpressumPage() {
                           contact@cs-business-consulting.com
                         </a>
                         {line.split("contact@cs-business-consulting.com")[1] ?? ""}
-                      </>
-                    ) : line.includes("ec.europa.eu/consumers/odr") ? (
-                      <>
-                        {line.split("ec.europa.eu/consumers/odr")[0]}
-                        <a
-                          href="https://ec.europa.eu/consumers/odr/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="prose-link"
-                        >
-                          ec.europa.eu/consumers/odr
-                          <span className="sr-only">
-                            {lang === "de" ? " (öffnet in neuem Fenster)" : " (opens in a new window)"}
-                          </span>
-                        </a>
-                        {line.split("ec.europa.eu/consumers/odr")[1] ?? ""}
                       </>
                     ) : (
                       line
