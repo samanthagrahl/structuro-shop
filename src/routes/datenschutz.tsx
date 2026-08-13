@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { BrandMark } from "@/components/brand-mark";
+import { CookieSettingsButton } from "@/components/analytics-consent";
 import { SITE_ORIGIN, setPageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/datenschutz")({
@@ -62,19 +63,21 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
       {
         heading: "5. Webanalyse (Google Analytics)",
         body: [
-          "Wir setzen Google Analytics 4 über den Google-Tag ein (Google Ireland Limited / Google LLC, USA), um die Nutzung unserer Website statistisch auszuwerten und unser Angebot zu verbessern.",
-          "Google Analytics verwendet Cookies und vergleichbare Technologien. Die dabei erhobenen Informationen (z. B. Seitenaufrufe, Verweildauer, Herkunft) werden in der Regel an Google-Server übermittelt und dort gespeichert; eine Übermittlung in die USA ist möglich.",
-          "Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), sofern Analytics nicht technisch notwendig ist.",
-          "Sie können Ihre Einwilligung jederzeit widerrufen. Details zum Opt-out entnehmen Sie den Hinweisen von Google: tools.google.com/dlpage/gaoptout",
+          "Wir setzen Google Analytics 4 (Google Ireland Limited / Google LLC, USA) ein, um die Nutzung unserer Website statistisch auszuwerten und unser Angebot zu verbessern.",
+          "Die Analyse-Skripte von Google werden erst geladen, nachdem Sie über den Hinweis auf der Website zugestimmt haben. Vor Ihrer Einwilligung wird Google Analytics nicht geladen und es findet keine Übermittlung an Google statt.",
+          "Nach der Einwilligung verwendet Google Analytics Cookies und vergleichbare Technologien. Die dabei erhobenen Informationen (z. B. Seitenaufrufe, Verweildauer, Herkunft) werden in der Regel an Google-Server übermittelt und dort gespeichert; eine Übermittlung in die USA ist möglich.",
+          "Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).",
+          "Sie können Ihre Einwilligung jederzeit widerrufen – über „Cookie-Einstellungen“ im Footer der Website, durch Löschen der gespeicherten Website-Daten in Ihrem Browser oder über den Opt-out von Google: tools.google.com/dlpage/gaoptout",
         ],
       },
       {
         heading: "6. Cookies",
         body: [
-          "Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden.",
-          "Technisch notwendige Cookies: Derzeit setzt unsere Website keine eigenen technisch notwendigen Cookies für den Betrieb der Seite.",
-          "Analyse-Cookies: Sofern Google Analytics eingesetzt wird, werden Analyse-Cookies gesetzt. Diese werden nur mit Ihrer Einwilligung aktiviert.",
-          "Sie können Cookies in Ihren Browser-Einstellungen einschränken oder löschen. Bereits gespeicherte Cookies können Sie jederzeit entfernen.",
+          "Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Vergleichbare Speichermechanismen im Endgerät (z. B. lokaler Browserspeicher) können rechtlich denselben Anforderungen unterliegen.",
+          "Zur Speicherung Ihrer Auswahl zur Webanalyse verwenden wir den lokalen Browserspeicher (cs-analytics-consent). Die Information dient ausschließlich dazu, Ihre Auswahl bei weiteren Seitenaufrufen zu berücksichtigen.",
+          "Klassische Cookies für den reinen Seitenbetrieb setzen wir derzeit nicht.",
+          "Analyse-Cookies: Google Analytics und zugehörige Cookies werden nur nach Ihrer ausdrücklichen Einwilligung geladen bzw. gesetzt.",
+          "Sie können Cookies und lokal gespeicherte Website-Daten in Ihren Browser-Einstellungen einschränken oder löschen. Über „Cookie-Einstellungen“ im Footer können Sie Ihre Auswahl zur Webanalyse jederzeit ändern.",
         ],
       },
       {
@@ -95,7 +98,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
         heading: "9. Empfänger und Auftragsverarbeitung",
         body: [
           "Eine Weitergabe personenbezogener Daten erfolgt nur, soweit dies zur Bereitstellung der Website, zur Bearbeitung Ihrer Anfrage oder aufgrund gesetzlicher Verpflichtungen erforderlich ist.",
-          "Empfänger bzw. Auftragsverarbeiter können insbesondere sein: IONOS SE, Deutschland (Domain und E-Mail-Hosting); GitHub, Inc. / Microsoft (Hosting über GitHub Pages); Formspree Inc., USA (technische Entgegennahme und Weiterleitung des Kontaktformulars); sowie Google Ireland Limited / Google LLC (Google Tag Manager und Google Analytics).",
+          "Empfänger bzw. Auftragsverarbeiter können insbesondere sein: IONOS SE, Deutschland (Domain und E-Mail-Hosting); GitHub, Inc. / Microsoft (Hosting über GitHub Pages); Formspree Inc., USA (technische Entgegennahme und Weiterleitung des Kontaktformulars); sowie – nur nach Einwilligung in die Webanalyse – Google Ireland Limited / Google LLC (Google Analytics).",
           "Formspree verarbeitet die Formulardaten in unserem Auftrag zur technischen Übermittlung an uns. Soweit erforderlich, stützen wir uns auf Vereinbarungen zur Auftragsverarbeitung gemäß Art. 28 DSGVO.",
         ],
       },
@@ -117,7 +120,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
           "• Einschränkung der Verarbeitung (Art. 18 DSGVO)",
           "• Datenübertragbarkeit (Art. 20 DSGVO)",
           "• Widerspruch (Art. 21 DSGVO)",
-          "• Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO) mit Wirkung für die Zukunft",
+          "• Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO) mit Wirkung für die Zukunft – über „Cookie-Einstellungen“ im Footer ebenso einfach wie die Erteilung",
           "Zur Ausübung Ihrer Rechte genügt eine Nachricht an contact@cs-business-consulting.com.",
         ],
       },
@@ -184,19 +187,21 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
       {
         heading: "5. Web analytics (Google Analytics)",
         body: [
-          "We use Google Analytics 4 via the Google tag (Google Ireland Limited / Google LLC, USA) to statistically evaluate website usage and improve our offering.",
-          "Google Analytics uses cookies and similar technologies. Information collected (e.g. page views, duration, referrer) is usually transmitted to and stored on Google servers; transfer to the USA is possible.",
-          "Legal basis: Art. 6(1)(a) GDPR (consent), where analytics is not strictly necessary.",
-          "You may withdraw consent at any time. For opt-out options, see Google: tools.google.com/dlpage/gaoptout",
+          "We use Google Analytics 4 (Google Ireland Limited / Google LLC, USA) to statistically evaluate website usage and improve our offering.",
+          "Google’s analytics scripts are loaded only after you consent via the notice on the website. Before your consent, Google Analytics is not loaded and no data is transmitted to Google.",
+          "After consent, Google Analytics uses cookies and similar technologies. Information collected (e.g. page views, duration, referrer) is usually transmitted to and stored on Google servers; transfer to the USA is possible.",
+          "Legal basis: Art. 6(1)(a) GDPR (consent).",
+          "You may withdraw consent at any time via “Cookie settings” in the website footer, by clearing stored website data in your browser, or using Google’s opt-out: tools.google.com/dlpage/gaoptout",
         ],
       },
       {
         heading: "6. Cookies",
         body: [
-          "Cookies are small text files stored on your device.",
-          "Strictly necessary cookies: Our website currently does not set its own strictly necessary cookies for operation.",
-          "Analytics cookies: If Google Analytics is used, analytics cookies are set. These are only activated with your consent.",
-          "You can restrict or delete cookies in your browser settings at any time.",
+          "Cookies are small text files stored on your device. Comparable storage mechanisms on the end device (e.g. local browser storage) may be subject to the same legal requirements.",
+          "To store your web analytics choice, we use local browser storage (cs-analytics-consent). This information is used solely to respect your choice on subsequent visits.",
+          "We currently do not set classic cookies solely for operating the website.",
+          "Analytics cookies: Google Analytics and related cookies are loaded or set only after your explicit consent.",
+          "You can restrict or delete cookies and locally stored website data in your browser settings. Via “Cookie settings” in the footer you can change your web analytics choice at any time.",
         ],
       },
       {
@@ -217,7 +222,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
         heading: "9. Recipients and processors",
         body: [
           "Personal data is disclosed only where necessary to provide the website, process your inquiry or comply with legal obligations.",
-          "Recipients or processors may include in particular: IONOS SE, Germany (domain and email hosting); GitHub, Inc. / Microsoft (hosting via GitHub Pages); Formspree Inc., USA (technical receipt and forwarding of the contact form); and Google Ireland Limited / Google LLC (Google Tag Manager and Google Analytics).",
+          "Recipients or processors may include in particular: IONOS SE, Germany (domain and email hosting); GitHub, Inc. / Microsoft (hosting via GitHub Pages); Formspree Inc., USA (technical receipt and forwarding of the contact form); and – only after consent to web analytics – Google Ireland Limited / Google LLC (Google Analytics).",
           "Formspree processes the form data on our behalf for technical transmission to us. Where required, we rely on processor agreements pursuant to Art. 28 GDPR.",
         ],
       },
@@ -239,7 +244,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
           "• Restriction of processing (Art. 18 GDPR)",
           "• Data portability (Art. 20 GDPR)",
           "• Objection (Art. 21 GDPR)",
-          "• Withdrawal of consent (Art. 7(3) GDPR) with effect for the future",
+          "• Withdrawal of consent (Art. 7(3) GDPR) with effect for the future – via “Cookie settings” in the footer, as easy as giving consent",
           "To exercise your rights, contact contact@cs-business-consulting.com.",
         ],
       },
@@ -454,6 +459,7 @@ function PrivacyPage() {
           <Link to="/impressum" className="prose-link text-sm">
             {lang === "de" ? "Impressum" : "Legal notice"} →
           </Link>
+          <CookieSettingsButton className="prose-link text-sm" />
         </nav>
       </main>
 

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/brand-mark";
+import { CookieSettingsButton } from "@/components/analytics-consent";
 import { SITE_ORIGIN, setPageSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/impressum")({
@@ -49,7 +50,7 @@ const content = {
         ],
       },
       {
-        heading: "EU-Streitschlichtung",
+        heading: "Verbraucherstreitbeilegung",
         body: [
           "Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
         ],
@@ -116,7 +117,7 @@ const content = {
         ],
       },
       {
-        heading: "EU dispute resolution",
+        heading: "Consumer dispute resolution",
         body: [
           "We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
         ],
@@ -274,6 +275,7 @@ function ImpressumPage() {
           <Link to="/datenschutz" className="prose-link text-sm">
             {lang === "de" ? "Datenschutz" : "Privacy policy"} →
           </Link>
+          <CookieSettingsButton className="prose-link text-sm" />
         </nav>
       </main>
 

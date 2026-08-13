@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { BrandMark } from "@/components/brand-mark";
+import { CookieSettingsButton } from "@/components/analytics-consent";
 import {
   organizationJsonLd,
   setPageSeo,
@@ -1089,8 +1090,8 @@ function Contact() {
                 </p>
               ) : null}
               <p id="kontakt-hinweis" className="text-xs text-muted-foreground">
-                Mit Absenden stimmen Sie zu, dass wir Ihre Angaben zur Beantwortung Ihrer
-                Anfrage verarbeiten. Details in der{" "}
+                Mit Absenden werden Ihre Angaben zur Bearbeitung Ihrer Anfrage
+                verarbeitet. Details finden Sie in der{" "}
                 <Link to="/datenschutz" className="prose-link">
                   Datenschutzerklärung
                 </Link>
@@ -1205,6 +1206,7 @@ function Footer() {
           >
             Datenschutz
           </Link>
+          <CookieSettingsButton />
         </nav>
       </div>
     </footer>
