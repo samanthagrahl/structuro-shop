@@ -33,7 +33,8 @@ jobs:
       - name: Build site
         run: npm run build
         env:
-          VITE_MAINTENANCE_MODE: "true"
+          VITE_MAINTENANCE_MODE: "false"
+          VITE_FORMSPREE_FORM_ID: ${{ secrets.VITE_FORMSPREE_FORM_ID }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

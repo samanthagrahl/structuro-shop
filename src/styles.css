@@ -12,7 +12,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Source Serif 4", ui-serif, "Iowan Old Style", "Palatino Linotype", serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,8 +49,8 @@
   --foreground: oklch(0.22 0.03 250);         /* dunkles Navy/Anthrazit */
   --ink: oklch(0.22 0.03 250);
   --sand: oklch(0.93 0.025 78);               /* dezenter Sandton */
-  --petrol: oklch(0.52 0.09 210);             /* Petrol */
-  --petrol-soft: oklch(0.72 0.06 210);
+  --petrol: oklch(0.44 0.09 210);             /* Petrol – AA-Kontrast auf Hellgründen */
+  --petrol-soft: oklch(0.78 0.055 210);      /* helleres Petrol auf dunklen Flächen */
   --hairline: oklch(0.86 0.02 80);
 
   --card: oklch(0.985 0.008 85);
@@ -62,10 +62,10 @@
   --secondary: var(--sand);
   --secondary-foreground: var(--ink);
   --muted: oklch(0.94 0.015 82);
-  --muted-foreground: oklch(0.45 0.02 250);
+  --muted-foreground: oklch(0.40 0.02 250);  /* AA-Kontrast für Nebentext */
   --accent: var(--petrol);
   --accent-foreground: oklch(0.98 0.01 85);
-  --destructive: oklch(0.55 0.2 27);
+  --destructive: oklch(0.50 0.19 27);        /* etwas dunkler für AA auf Hell */
   --destructive-foreground: oklch(0.98 0.01 85);
   --border: var(--hairline);
   --input: var(--hairline);
@@ -80,17 +80,50 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
   }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--petrol);
+    outline-offset: 3px;
+  }
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    z-index: 100;
+    transform: translateY(-120%);
+    border-radius: 9999px;
+    background-color: var(--ink);
+    color: var(--primary-foreground);
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    transform: translateY(0.75rem);
+    outline: 2px solid var(--petrol-soft);
+    outline-offset: 3px;
   }
 }
 
@@ -110,9 +143,23 @@
 
 @utility fade-in-up {
   animation: fadeInUp 0.7s ease-out both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@utility prose-link {
+  color: var(--petrol);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.15s ease;
+}
+.prose-link:hover {
+  color: var(--ink);
 }
