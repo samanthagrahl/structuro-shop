@@ -62,7 +62,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
       {
         heading: "5. Webanalyse (Google Analytics)",
         body: [
-          "Wir setzen Google Analytics 4 über den Google Tag Manager ein (Google Ireland Limited / Google LLC, USA), um die Nutzung unserer Website statistisch auszuwerten und unser Angebot zu verbessern.",
+          "Wir setzen Google Analytics 4 über den Google-Tag ein (Google Ireland Limited / Google LLC, USA), um die Nutzung unserer Website statistisch auszuwerten und unser Angebot zu verbessern.",
           "Google Analytics verwendet Cookies und vergleichbare Technologien. Die dabei erhobenen Informationen (z. B. Seitenaufrufe, Verweildauer, Herkunft) werden in der Regel an Google-Server übermittelt und dort gespeichert; eine Übermittlung in die USA ist möglich.",
           "Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), sofern Analytics nicht technisch notwendig ist.",
           "Sie können Ihre Einwilligung jederzeit widerrufen. Details zum Opt-out entnehmen Sie den Hinweisen von Google: tools.google.com/dlpage/gaoptout",
@@ -184,7 +184,7 @@ const content: Record<Lang, { title: string; intro: string; sections: Section[];
       {
         heading: "5. Web analytics (Google Analytics)",
         body: [
-          "We use Google Analytics 4 via Google Tag Manager (Google Ireland Limited / Google LLC, USA) to statistically evaluate website usage and improve our offering.",
+          "We use Google Analytics 4 via the Google tag (Google Ireland Limited / Google LLC, USA) to statistically evaluate website usage and improve our offering.",
           "Google Analytics uses cookies and similar technologies. Information collected (e.g. page views, duration, referrer) is usually transmitted to and stored on Google servers; transfer to the USA is possible.",
           "Legal basis: Art. 6(1)(a) GDPR (consent), where analytics is not strictly necessary.",
           "You may withdraw consent at any time. For opt-out options, see Google: tools.google.com/dlpage/gaoptout",

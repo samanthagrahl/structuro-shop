@@ -169,6 +169,25 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+.about-team-photos,
+.about-team-cards {
+  display: contents;
+}
+.about-team-photo-s {
+  order: 1;
+}
+.about-team-card-s {
+  order: 2;
+}
+.about-team-photo-c {
+  order: 3;
+}
+.about-team-card-c {
+  order: 4;
+}
+.about-team-card-n {
+  order: 5;
+}
 .about-team-card {
   overflow: hidden;
   border-radius: 1rem;
@@ -181,38 +200,32 @@
     display: grid;
     grid-template-columns: minmax(0, 21rem) 1fr;
     column-gap: 2.5rem;
-    row-gap: 1.5rem;
     align-items: start;
   }
-  .about-team-photo-s {
-    grid-column: 1;
-    grid-row: 1;
+  .about-team-photos {
+    display: grid;
+    gap: 1.25rem;
     position: sticky;
     top: 6rem;
+    align-self: start;
   }
-  .about-team-photo-c {
-    grid-column: 1;
-    grid-row: 2;
-    position: sticky;
-    top: 6rem;
+  .about-team-cards {
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid var(--hairline);
+    background-color: var(--hairline);
   }
-  .about-team-card-s {
-    grid-column: 2;
-    grid-row: 1;
-    border-radius: 1rem 1rem 0 0;
-  }
-  .about-team-card-c {
-    grid-column: 2;
-    grid-row: 2;
-    border-radius: 0;
-    margin-top: -1.5rem;
-    border-top: 0;
-  }
+  .about-team-photo-s,
+  .about-team-photo-c,
+  .about-team-card-s,
+  .about-team-card-c,
   .about-team-card-n {
-    grid-column: 2;
-    grid-row: 3;
-    border-radius: 0 0 1rem 1rem;
-    margin-top: -1.5rem;
-    border-top: 0;
+    order: unset;
+  }
+  .about-team-card {
+    border-radius: 0;
+    border-width: 0;
   }
 }

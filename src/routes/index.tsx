@@ -893,17 +893,21 @@ function About() {
         </div>
 
         <div className="about-team mt-8">
-          <div className="about-team-photo-s">{portraitBlock(portraits[0])}</div>
-          <article className="about-team-card about-team-card-s">
-            <ul>{pointCard(points[0], 0)}</ul>
-          </article>
-          <div className="about-team-photo-c">{portraitBlock(portraits[1])}</div>
-          <article className="about-team-card about-team-card-c">
-            <ul>{pointCard(points[1], 1)}</ul>
-          </article>
-          <article className="about-team-card about-team-card-n">
-            <ul>{pointCard(points[2], 2)}</ul>
-          </article>
+          <div className="about-team-photos">
+            <div className="about-team-photo-s">{portraitBlock(portraits[0])}</div>
+            <div className="about-team-photo-c">{portraitBlock(portraits[1])}</div>
+          </div>
+          <div className="about-team-cards">
+            <article className="about-team-card about-team-card-s">
+              <ul>{pointCard(points[0], 0)}</ul>
+            </article>
+            <article className="about-team-card about-team-card-c">
+              <ul>{pointCard(points[1], 1)}</ul>
+            </article>
+            <article className="about-team-card about-team-card-n">
+              <ul>{pointCard(points[2], 2)}</ul>
+            </article>
+          </div>
         </div>
         <div className="mt-8 max-w-xl border-l-2 border-petrol pl-5 md:mt-10">
           <p className="text-base leading-relaxed text-foreground/80">
