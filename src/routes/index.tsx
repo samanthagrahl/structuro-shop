@@ -823,6 +823,55 @@ function About() {
       alt: "Portrait von Christian, Business & Operations bei C&S Consulting",
     },
   ];
+
+  const portraitBlock = (portrait: (typeof portraits)[number]) => (
+    <div key={portrait.name}>
+      <div className="overflow-hidden rounded-2xl border hairline bg-sand/40">
+        <picture>
+          <source srcSet={portrait.imageWebp} type="image/webp" />
+          <img
+            src={portrait.image}
+            alt={portrait.alt}
+            width={912}
+            height={1104}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        </picture>
+      </div>
+      <p className="mt-3 break-words text-sm text-foreground/70">
+        {portrait.name} · {portrait.role}
+      </p>
+    </div>
+  );
+
+  const pointCard = (p: (typeof points)[number], i: number) => (
+    <li key={p.t} className="bg-background p-6 md:p-7">
+      <span className="mb-4 block font-display text-[1.75rem] font-semibold leading-none text-petrol">
+        {String(i + 1).padStart(2, "0")}
+      </span>
+      <h3 className="break-words text-base font-semibold leading-snug tracking-tight text-foreground">
+        {p.t}
+      </h3>
+      <div className="mt-3 max-w-prose space-y-3.5 text-sm leading-relaxed text-foreground/70">
+        {p.paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+      {"focus" in p && p.focus ? (
+        <p className="mt-5 max-w-prose border-t hairline pt-4 text-xs leading-relaxed text-foreground/80">
+          {p.focus}
+        </p>
+      ) : null}
+      {"qualifications" in p && p.qualifications ? (
+        <p className="mt-3 max-w-prose text-xs leading-relaxed text-muted-foreground">
+          {p.qualifications}
+        </p>
+      ) : null}
+    </li>
+  );
+
   return (
     <section id="ueber-uns" className="py-16 md:py-24">
       <div className="container-page">
@@ -842,57 +891,19 @@ function About() {
             </p>
           </div>
         </div>
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,21rem)_1fr] lg:gap-10">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1 lg:sticky lg:top-24 lg:self-start">
-            {portraits.map((portrait) => (
-              <div key={portrait.name}>
-                <div className="overflow-hidden rounded-2xl border hairline bg-sand/40">
-                  <picture>
-                    <source srcSet={portrait.imageWebp} type="image/webp" />
-                    <img
-                      src={portrait.image}
-                      alt={portrait.alt}
-                      width={912}
-                      height={1104}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </picture>
-                </div>
-                <p className="mt-3 break-words text-sm text-foreground/70">
-                  {portrait.name} · {portrait.role}
-                </p>
-              </div>
-            ))}
-          </div>
-          <ul className="grid gap-px overflow-hidden rounded-2xl border hairline bg-hairline">
-            {points.map((p, i) => (
-              <li key={p.t} className="bg-background p-6 md:p-7">
-                <span className="mb-4 block font-display text-[1.75rem] font-semibold leading-none text-petrol">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="break-words text-base font-semibold leading-snug tracking-tight text-foreground">
-                  {p.t}
-                </h3>
-                <div className="mt-3 max-w-prose space-y-3.5 text-sm leading-relaxed text-foreground/70">
-                  {p.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-                {"focus" in p && p.focus ? (
-                  <p className="mt-5 max-w-prose border-t hairline pt-4 text-xs leading-relaxed text-foreground/80">
-                    {p.focus}
-                  </p>
-                ) : null}
-                {"qualifications" in p && p.qualifications ? (
-                  <p className="mt-3 max-w-prose text-xs leading-relaxed text-muted-foreground">
-                    {p.qualifications}
-                  </p>
-                ) : null}
-              </li>
-            ))}
-          </ul>
+
+        <div className="about-team mt-8">
+          <div className="about-team-photo-s">{portraitBlock(portraits[0])}</div>
+          <article className="about-team-card about-team-card-s">
+            <ul>{pointCard(points[0], 0)}</ul>
+          </article>
+          <div className="about-team-photo-c">{portraitBlock(portraits[1])}</div>
+          <article className="about-team-card about-team-card-c">
+            <ul>{pointCard(points[1], 1)}</ul>
+          </article>
+          <article className="about-team-card about-team-card-n">
+            <ul>{pointCard(points[2], 2)}</ul>
+          </article>
         </div>
         <div className="mt-8 max-w-xl border-l-2 border-petrol pl-5 md:mt-10">
           <p className="text-base leading-relaxed text-foreground/80">
