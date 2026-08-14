@@ -38,7 +38,7 @@ const content = {
       },
       {
         heading: "Umsatzsteuer-Identifikationsnummer",
-        body: ["ESY5010117H (gemäß § 27a UStG)"],
+        body: ["ESY5010117H"],
       },
       {
         heading: "Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)",
